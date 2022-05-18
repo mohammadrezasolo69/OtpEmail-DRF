@@ -26,6 +26,7 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'rest_framework',
+    'rest_framework_simplejwt',
 
     # My app
     'accounts.apps.AccountsConfig',
@@ -111,3 +112,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# OTP
+OTP_EXPIRE_TIME = 5
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
